@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+    <div>
+        预约试驾
+    </div>
 </template>
 
 <script setup>
