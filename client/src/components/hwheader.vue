@@ -1,15 +1,17 @@
 <template>
-    <div class="header" :style="{ backgroundColor: bgColor }">
-        <div class="header-left">
-            <span class="iconfont icon-fanhui" @click="goBack"></span>
-            <div class="content">
+    <div class="header fixed top-0 left-0 right-0 flex justify-between items-center h-5 z-50" 
+        :class="`bg-${bgColor}`"
+        >
+        <div class="header-left flex item-center">
+            <span class="iconfont icon-fanhui p-1 [&.iconfont]:text-[24px] font-bold" @click="goBack"></span>
+            <div class="content font-bold text-[20px] self-center flex pl-1">
                 <!-- 添加一个插槽 -->
                 <slot name="content"></slot>
             </div>
         </div>
 
         <div class="icon">
-            <span class="iconfont icon-kefu"></span>
+            <span class="iconfont icon-kefu [&.iconfont]:text-[20px] p-1 font-bold"></span>
         </div>
     </div>
 </template>
@@ -28,35 +30,4 @@ const goBack = () => {
   
 <style scoped>
 @import url('//at.alicdn.com/t/c/font_4431638_v3g78oyxpp.css');
-.header {
-    background: v-bind(bgColor);
-    height: 100rpx;
-    top: 0;
-    left: 0;
-    right: 0;
-    line-height: 100rpx;
-    position: fixed;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    font-size: 36rpx;
-}
-
-.header-left {
-    display: flex;
-    padding-left: 20rpx;
-}
-
-.content {
-    font-weight: bold;
-    padding-left: 20rpx;
-}
-
-.icon {
-    padding-right: 60rpx;
-}
-
-.icon text {
-    font-weight: bold;
-    font-size: 36rpx;
-}</style>
+</style>
