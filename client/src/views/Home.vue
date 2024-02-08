@@ -11,10 +11,11 @@
           </div>
         </div>
         <div class="footer fixed bottom-0 left-0 right-0 flex justify-center items-center bg-[#f1f3f5] h-6 pl-2 pr-2">
-          <div class="left bg-[#d8dadc] rounded-lg h-4 text-[16px] font-bold w-16 justify-center items-center flex mr-1">
+          <div class="left bg-[#d8dadc] rounded-lg h-4 text-[16px] font-bold w-16 justify-center items-center flex mr-1" @click="goToDrive">
             预约试驾
           </div>
-          <div class="right bg-[#cf0a2c] rounded-lg h-4 text-[16px] font-bold text-[#fff] w-16 self justify-center items-center flex ml-1">
+          <div class="right bg-[#cf0a2c] rounded-lg h-4 text-[16px] font-bold text-[#fff] w-16 self justify-center items-center flex ml-1"
+           @click="goToBuy">
             立即购买
           </div>
         </div>
@@ -26,10 +27,13 @@
 <script setup>
 import hwheader from '../components/hwheader.vue';
 import {  ref,onUnmounted,onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 import axios from 'axios'; // 引入 axios
 
 const itemImg = ref([]);
 const headerBgColor = ref('rgba(241, 243, 245, 0)');
+
+const router = useRouter();
 
 onMounted(async () => {
   try {
@@ -58,8 +62,10 @@ const handleScroll = (e) => {
 	}
 	headerBgColor.value = `rgba(241, 243, 245, ${bgOpacity})`
 }
+const goToDrive = () => {
+  router.push('./drive');
+}
+const goToBuy = () => {
+  router.push('./buy');
+}
 </script>
-
-<style lang="less" scoped>
-
-</style>
