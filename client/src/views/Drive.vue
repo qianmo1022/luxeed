@@ -21,23 +21,40 @@
                     欢迎预约
                 </div>
                 <div class="info-box">
-                    <div class="info-cartype flex">
+                    <div class="info-cartype flex bt-line">
                         <div class="text text-[14px] text-[rgba(255,255,255,0.6)] self-center">意向车型</div>
                         <van-field class="select max-w-[250px] ml-2 " v-model="fieldValue" is-link readonly placeholder="请选择意向车型"
-                            @click="show = true" />
+                            @click="changeShow" />
                         <van-popup v-if="show" round position="bottom">
                             <van-cascader v-model="cascaderValue" title="请选择意向车型" :options="options" @close="show = false"
-                                @finish="onFinish" />
+                            @finish="onFinish" />
                         </van-popup>
                     </div>
-                    <div class="info-phone">
+                    <div class="info-phone flex bt-line">
                         <div class="text text-[14px] text-[rgba(255,255,255,0.6)] self-center">手机号码</div>
+                        <van-field  class="select max-w-[250px] ml-2 text-[#ffffff]" center clearable v-model="value" placeholder="请输入手机号码"/>
                     </div>
-                    <div class="info-code">
+                    <div class="info-code flex bt-line">
                         <div class="text text-[14px] text-[rgba(255,255,255,0.6)] self-center">验证码</div>
+                        <van-field  class="select max-w-[250px] ml-3.5 text-[#ffffff]" center clearable v-model="verifyCode" placeholder="请输入验证码">
+                            <template #button>
+                                <van-button type="primary" size="small">获取验证码</van-button>
+                            </template>
+                        </van-field>
                     </div>
-                    <div class="info-shop">
+                    <div class="info-shop flex bt-line">
                         <div class="text text-[14px] text-[rgba(255,255,255,0.6)] self-center">选择门店</div>
+                        <van-field class="select max-w-[250px] ml-2 " v-model="fieldValue" is-link readonly placeholder="请选择预约门店"
+                            @click="changeShow" />
+                        <van-popup v-if="show" round position="bottom">
+                            <van-cascader v-model="storeValue" title="门店" :options="storeInfo" @close="show = false"
+                            @finish="onFinish" />
+                        </van-popup>
+                    </div>
+                    <div class="service fixed bottom-0 left-0 right-0 min-h-[36px] bg-[#ffffff] rounded-lg 
+                                ml-4 mr-4 mb-1 justify-center items-center text-[20px] flex" 
+                                @click="submit">
+                        立即预约
                     </div>
                 </div>
             </div>
@@ -51,9 +68,12 @@
 import hwheader from '../components/hwheader.vue';
 import { ref } from 'vue';
 
-const show = ref(false);
+const show = ref(true);
 const fieldValue = ref('');
 const cascaderValue = ref('');
+const storeValue = ref('');
+const value = ref('');
+const verifyCode = ref('');
     // 选项列表，children 代表子选项，支持多级嵌套
     const options = [
       {
@@ -65,18 +85,89 @@ const cascaderValue = ref('');
         value: '320000',
       },
     ];
+    // 点击输入框时，显示弹出层
+    const changeShow = () => {
+      show.value = true;
+    };
     // 全部选项选择完毕后，会触发 finish 事件
     const onFinish = ({ selectedOptions }) => {
       show.value = false;
       fieldValue.value = selectedOptions.map((option) => option.text).join('/');
     };
-
-
+    const storeInfo = [
+        {
+            text: '北京',
+            value: '110000',
+            children: [
+            {
+                text: '北京市',
+                value: '110100',
+                children: [
+                {
+                    text: '朝阳区',
+                    value: '110105',
+                },
+                {
+                    text: '海淀区',
+                    value: '110106',
+                },
+                {
+                    text: '丰台区',
+                    value: '110107',
+                },
+                {
+                    text: '东城区',
+                    value: '110101',
+                },
+                {
+                    text: '西城区',
+                    value: '110102',
+                },
+                ],
+            },
+            ],
+        },
+        {
+            text: '上海',
+            value: '310000',
+            children: [
+            {
+                text: '上海市',
+                value: '310100',
+                children: [
+                {
+                    text: '黄浦区',
+                    value: '310101',
+                },
+                {
+                    text: '徐汇区',
+                    value: '310104',
+                },
+                {
+                    text: '长宁区',
+                    value: '310105',
+                },
+                {
+                    text: '静安区',
+                    value: '310106',
+                },
+                {
+                    text: '普陀区',
+                    value: '310107',
+                },
+                ],
+            },
+            ],
+        },
+    ]
+const submit = () => {
+    console.log('提交');
+}
 
 </script>
 
 <style scoped>
-.info-cartype {
+.bt-line {
     border-bottom: 0.5px solid rgba(255,255,255,0.5);
 }
 .select{
