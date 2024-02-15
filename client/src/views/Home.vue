@@ -15,7 +15,7 @@
             预约试驾
           </div>
           <div class="right bg-[#cf0a2c] rounded-lg h-4 text-[16px] font-bold text-[#fff] w-16 self justify-center items-center flex ml-1"
-           @click="goToBuy">
+           @click="goToSelect">
             立即购买
           </div>
         </div>
@@ -65,7 +65,7 @@ const handleScroll = (e) => {
 const goToDrive = () => {
   router.push('./drive');
 }
-const goToBuy = () => {
-  router.push('./buy');
+const goToSelect = () => {
+  router.push('./select');
 }
 </script>

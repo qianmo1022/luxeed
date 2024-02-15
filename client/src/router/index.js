@@ -12,9 +12,9 @@ const routes = [
     component: () => import('../views/Drive.vue')
   },
   {
-    path: '/buy',
-    name: 'Buy',
-    component: () => import('../views/Buy.vue')
+    path: '/select',
+    name: 'Select',
+    component: () => import('../views/Select.vue')
   }
 
 
