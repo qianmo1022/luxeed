@@ -1,11 +1,11 @@
 <template>
-    <div class="home" @scroll="handleScroll">
+    <div class="home h-screen" >
         <hwheader :bgColor="headerBgColor">
             <template v-slot:content><!-- 使用插槽 -->
               智界 S7
             </template>
         </hwheader>
-        <div class="body">
+        <div class="body" @scroll="handleScroll">
           <div class="bg-img w-full h-full " v-for="(item, index) in itemImg" :key="index">
               <img class="w-full h-full object-cover " lazy-load="true" :src="item.img">
           </div>
@@ -54,7 +54,7 @@ onUnmounted(() => {
 let bgOpacity = 0;
 const handleScroll = (e) => {
 	let top = e.target.documentElement.scrollTop;
-	// console.log(top);
+	console.log(top);
 	if (top <= 100) { //使得头部的背景颜色渐变
 		bgOpacity = (top / 100).toFixed(2)
 	} else {
