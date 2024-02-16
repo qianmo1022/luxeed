@@ -13,6 +13,7 @@ const routes = [
   },
   {
     path: '/select',
+    redirect: '/select/version',
     name: 'Select',
     component: () => import('../views/Select.vue'),
     children: [
@@ -22,7 +23,7 @@ const routes = [
         component: () => import('../views/select/Version.vue')
       }
     ],
-  },
+  }
 ]
 
 const router = createRouter({
