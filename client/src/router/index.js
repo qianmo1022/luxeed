@@ -14,10 +14,15 @@ const routes = [
   {
     path: '/select',
     name: 'Select',
-    component: () => import('../views/Select.vue')
-  }
-
-
+    component: () => import('../views/Select.vue'),
+    children: [
+      {
+        path: 'version',
+        name: 'Version',
+        component: () => import('../views/select/Version.vue')
+      }
+    ],
+  },
 ]
 
 const router = createRouter({

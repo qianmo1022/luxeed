@@ -19,7 +19,7 @@
 defineProps({
     bgColor: {
         type: String,
-        default: '#f1f3f5'
+        default: '#ffffff'
     }
 });
 const goBack = () => {

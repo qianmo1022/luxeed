@@ -1,21 +1,64 @@
 <template>
-    <div class="buy">
-        <div class="header-placeholder min-h-5 box-content"></div><!-- 弹性布局使得占位盒子高度异常，所以使用最小高度强制盒子高度不能小于5个单位 -->
-        <hwheader>
-        </hwheader>
+  <div class="buy">
+    <div class="header-placeholder min-h-5 box-content"></div>
+    <!-- 弹性布局使得占位盒子高度异常，所以使用最小高度强制盒子高度不能小于5个单位 -->
+    <hwheader></hwheader>
 
-        <div class="header bg-black h-4 ml-2 mr-2">
-            
-        </div>
+    <div class="header h-4 mt-2 ml-2 flex items-end">
+      <!-- items-end 使得文字底部与底部对齐 -->
+      <div
+        v-for="(item, index) in items"
+        :key="index"
+        class="justify-between items-center mr-2 text-[18px] bottom-0"
+        :class="{ 'text-[24px] font-bold': selectedItem === index }"
+        @click="selectedItem = index"
+      >
+        <router-link :to="`/select/${items[selectedItem].value}`">
+            {{ item.name }}
+        </router-link> 
+      </div>
     </div>
+    <div class="content mt-2">
+        <div class="preview h-[211px] bg-black" v-if="selectedItem != 0">
+        </div>  
+            <router-view></router-view> 
+    </div>
+  </div>
 </template>
 
 <script setup>
-import hwheader from '../components/hwheader.vue';
-import { ref } from 'vue';
+import hwheader from "../components/hwheader.vue";
+import { ref } from "vue";
+import { useRouter } from "vue-router";
+const router = useRouter();
 
+const selectedItem = ref(0);
+const items = [
+  {
+    name: "版本",
+    value: "version",
+  },
+  {
+    name: "外观",
+    value: "exterior",
+  },
+  {
+    name: "内饰",
+    value: "trim",
+  },
+  {
+    name: "轮毂",
+    value: "hub",
+  },
+  {
+    name: "座椅",
+    value: "seat",
+  },
+  {
+    name: "选装",
+    value: "optional",
+  },
+];
 </script>
 
-<style lang="less" scoped>
-
-</style>
+<style scoped></style>
