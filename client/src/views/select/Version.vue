@@ -1,8 +1,9 @@
 <template>
   <div class="content ml-2 mr-2 mt-2">
+    <!-- 选中的版本边框加粗 -->
     <div
       class="box border-[1px] border-[#eaeaea] border-solid rounded-md mt-2"
-      :class="{ 'border-[#000000] border-[2px]': selectedItem === index }"
+      :class="{ 'border-black border-[2px]': selectedItem === index }"
       v-for="(item, index) in items"
       :key="index"
       @click="selectedItem = index"

@@ -21,8 +21,13 @@ const routes = [
         path: 'version',
         name: 'Version',
         component: () => import('../views/select/Version.vue')
+      },
+      {
+        path:'appearance',
+        name: 'Appearance',
+        component: () => import('../views/select/Appearance.vue')
       }
-    ],
+    ]
   }
 ]
 
