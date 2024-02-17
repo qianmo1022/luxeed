@@ -20,12 +20,20 @@
       </div>
     </div>
   </div>
+  <sumPrice>
+    <template v-slot:price></template>
+    <template v-slot:step>
+      <!-- 通过下一步按钮跳转到外观选择页面 -->
+      <router-link to="/select/appearance">下一步</router-link>
+    </template>
+  </sumPrice>
+  <!-- 底部占位 -->
+  <div class="bottom-placeholder h-[64px] box-content"></div>
 </template>
 
 <script setup>
+import sumPrice from "../../components/sumPrice.vue";
 import { ref } from "vue";
-import { useRouter } from "vue-router";
-const router = useRouter();
 const selectedItem = ref(0);
 
 const items = [

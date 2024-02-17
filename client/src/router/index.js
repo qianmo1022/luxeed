@@ -26,6 +26,26 @@ const routes = [
         path:'appearance',
         name: 'Appearance',
         component: () => import('../views/select/Appearance.vue')
+      },
+      {
+        path:'trim',
+        name: 'Trim',
+        component: () => import('../views/select/Trim.vue')
+      },
+      {
+        path:'hub',
+        name: 'Hub',
+        component: () => import('../views/select/Hub.vue')
+      },
+      {
+        path:'seat',
+        name: 'Seat',
+        component: () => import('../views/select/Seat.vue')
+      },
+      {
+        path:'optional',
+        name: 'Optional',
+        component: () => import('../views/select/Optional.vue')
       }
     ]
   }
