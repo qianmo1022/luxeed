@@ -77,7 +77,7 @@
               placeholder="请输入验证码"
             >
               <template #button>
-                <van-button type="primary" size="small">获取验证码</van-button>
+                <van-button type="primary" size="small" color="#ffffff00">获取验证码</van-button>
               </template>
             </van-field>
           </div>

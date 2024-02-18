@@ -1,6 +1,7 @@
 <template>
   <div
-    class="sumPrice h-[64px] w-full bg-[#ffffff] flex justify-center items-center fixed bottom-0 space-between"
+    class="sumPrice h-[64px] w-full bg-[#ffffff] flex justify-center items-center fixed bottom-0 space-between
+    border-t-[0.5px] border-[#f2f2f2] border-solid"
   >
     <div class="forecast flex w-[60%]">
       <!-- 使用插槽，插入价格 -->

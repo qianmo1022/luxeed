@@ -1,13 +1,14 @@
 <template>
-  <div class="preview w-full h-[211px] mt-4 mb-4">
+  <div class="preview w-full h-[211px] mt-2 mb-2">
     <!-- 外观预览 -->
-    <img
-      class="object-cover w-full h-full"
-      src="https://res2.vmallres.com/pimages/uomcdn/CN/pms/202401/gbom/GB57010623/30263B66BFEA15F932E7DB355E0B9C1Emp.png"
-    />
+    <slot name="preview"></slot>
+  </div>
+  <div class="add flex flex-col justify-center items-center ml-2 mr-2">
+    <!-- 是否增加配置 -->
+    <slot name="add"></slot>
   </div>
   <div
-    class="color-info flex flex-col justify-center items-center mt-4 mb-4 h-6"
+    class="color-info flex flex-col justify-center items-center mt-2 mb-4 h-6 ml-2 mr-2"
   >
     <!-- 信息展示 -->
     <slot name="info"></slot>

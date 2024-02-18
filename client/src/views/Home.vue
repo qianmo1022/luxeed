@@ -54,7 +54,7 @@ onUnmounted(() => {
 let bgOpacity = 0;
 const handleScroll = (e) => {
 	let top = e.target.documentElement.scrollTop;
-	console.log(top);
+	// console.log(top);
 	if (top <= 100) { //使得头部的背景颜色渐变
 		bgOpacity = (top / 100).toFixed(2)
 	} else {

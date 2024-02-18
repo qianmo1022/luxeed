@@ -5,7 +5,7 @@ import 'amfe-flexible'//自动设置根字体大小
 import './assets/style/reset.css'//重置样式
 import './tailwind.css'
 
-import { Field,Cascader,Popup } from 'vant';
+import { Field,Cascader,Popup,Button } from 'vant';
 import 'vant/lib/index.css';
 
 const app = createApp(App)
@@ -16,4 +16,5 @@ app.use(router)
 app.use(Field);
 app.use(Cascader);
 app.use(Popup);
+app.use(Button);
 app.mount('#app')
