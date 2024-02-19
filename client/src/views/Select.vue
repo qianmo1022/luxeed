@@ -10,10 +10,10 @@
         v-for="(item, index) in selection"
         :key="index"
         class="justify-between items-center mr-2 text-[18px] bottom-0"
-        :class="{ 'text-[24px] font-bold': selectedItem === index}"
+        :class="{ 'text-[24px] font-bold': selectedItem === index }"
         @click="selectedItem = index"
       >
-      <!-- 通过点击事件改变selectedItem的值，从而改变样式 -->
+        <!-- 通过点击事件改变selectedItem的值，从而改变样式 -->
         <router-link :to="`/select/${item.value}`">
           {{ item.name }}
         </router-link>
@@ -27,18 +27,22 @@
 
 <script setup>
 import hwheader from "../components/hwheader.vue";
-import { ref,watchEffect,toRefs } from "vue";
-import { useRouter } from 'vue-router';
+import { ref, watchEffect, toRefs } from "vue";
+import { useRoute, useRouter } from "vue-router";
 import { useSelectStore } from "../store/select";
 
 const router = useRouter();
+const route = useRoute();
 
+// const isSelected = (item)=>{
+//   console.log(route.path);
+//   return item.value === route.
+// }
 
-const { selectedItem,selection } = toRefs(useSelectStore())//解构赋值，从useSelectStore中获取selection
+const { selectedItem, selection } = toRefs(useSelectStore()); //解构赋值，从useSelectStore中获取selection
 // console.log(selection);
 
-  console.log(selectedItem.value);
-
+// console.log(selectedItemIndex.value);
 </script>
 
 <style scoped></style>

@@ -32,7 +32,7 @@
               意向车型
             </div>
             <van-field
-              class="select max-w-[250px] ml-2"
+              class="!bg-transparent max-w-[250px] ml-2"
               v-model="fieldValue"
               is-link
               readonly
@@ -55,8 +55,8 @@
             >
               手机号码
             </div>
-            <van-field
-              class="select max-w-[250px] ml-2 text-[#ffffff] whiteText"
+            <van-fnield
+              class="!bg-transparent max-w-[250px] ml-2 text-[#ffffff]"
               center
               clearable
               v-model="value"
@@ -70,7 +70,7 @@
               验证码
             </div>
             <van-field
-              class="select max-w-[250px] ml-3.5 text-[#ffffff]"
+              class="!bg-transparent max-w-[250px] ml-3.5 text-[#ffffff]"
               center
               clearable
               v-model="verifyCode"
@@ -88,7 +88,7 @@
               选择门店
             </div>
             <van-field
-              class="select max-w-[250px] ml-2"
+              class="!bg-transparent max-w-[250px] ml-2"
               v-model="fieldStoreValue"
               is-link
               readonly
@@ -227,12 +227,5 @@ const submit = () => {
 <style scoped>
 .bt-line {
   border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
-}
-
-.select {
-  background-color: rgba(0, 0, 0, 0);
-}
-.whiteText {
-  color: #ffffff !important;
 }
 </style>

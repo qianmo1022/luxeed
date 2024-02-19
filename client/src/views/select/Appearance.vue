@@ -12,19 +12,29 @@
     </template>
     <template v-slot:choose>
       <div class="color-list flex justify-center items-center mt-4 ml-4 mr-4">
-        <div class="color-box w-[60px] h-[60px] flex justify-center items-center">
+        <div
+          class="color-box w-[60px] h-[60px] flex justify-center items-center"
+        >
           <div class="color-item w-4 h-4 rounded-full bg-[#000000]"></div>
         </div>
-        <div class="color-box w-[60px] h-[60px] flex justify-center items-center">
+        <div
+          class="color-box w-[60px] h-[60px] flex justify-center items-center"
+        >
           <div class="color-item w-4 h-4 rounded-full bg-[#ededed]"></div>
         </div>
-        <div class="color-box w-[60px] h-[60px] flex justify-center items-center">
+        <div
+          class="color-box w-[60px] h-[60px] flex justify-center items-center"
+        >
           <div class="color-item w-4 h-4 rounded-full bg-[#666666]"></div>
         </div>
-        <div class="color-box w-[60px] h-[60px] flex justify-center items-center">
+        <div
+          class="color-box w-[60px] h-[60px] flex justify-center items-center"
+        >
           <div class="color-item w-4 h-4 rounded-full bg-[#6e839b]"></div>
         </div>
-        <div class="color-box w-[60px] h-[60px] flex justify-center items-center">
+        <div
+          class="color-box w-[60px] h-[60px] flex justify-center items-center"
+        >
           <div class="color-item w-4 h-4 rounded-full bg-[#cdc8c2]"></div>
         </div>
       </div>
@@ -41,7 +51,7 @@
     </template>
     <template v-slot:step>
       <!-- 通过下一步按钮跳转到外观选择页面 -->
-      <router-link to="/select/trim">下一步</router-link>
+      <div @click="goToTrim">下一步</div>
     </template>
   </sumPrice>
   <!-- 底部占位 -->
@@ -51,7 +61,16 @@
 <script setup>
 import sumPrice from "../../components/sumPrice.vue";
 import preview from "../../components/preview.vue";
+import { useRouter } from "vue-router";
+import { useSelectStore } from "../../store/select";
+const router = useRouter();
 
+const { nextItem } = useSelectStore();
+
+const goToTrim = () => {
+  router.push("/select/trim");
+  nextItem();
+};
 </script>
 
 <style scoped></style>

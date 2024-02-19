@@ -9,21 +9,23 @@
     <template v-slot:add>
       <div
         class="border-[1px] border-[#000000] border-solid rounded-md flex flex-col w-full h-[72px] mb-1"
-        :class="{'border-[2px]': true}"
+        :class="{ 'border-[2px]': true }"
       >
         <div class="container p-[10px]">
           <div class="title text-[16px] font-bold">无零重力座椅</div>
-          <div class="extra text-[14px] text-[#666666] mt-[5px]">价格已包含</div>
-        </div> 
+          <div class="extra text-[14px] text-[#666666] mt-[5px]">
+            价格已包含
+          </div>
+        </div>
       </div>
       <div
         class="border-[1px] border-[#000000] border-solid rounded-md flex flex-col w-full h-[72px]"
-        :class="{'border-[2px]': false}"
+        :class="{ 'border-[2px]': false }"
       >
         <div class="container p-[10px]">
           <div class="title text-[16px] font-bold">有零重力座椅</div>
           <div class="extra text-[14px] text-[#666666] mt-[5px]">+10000元</div>
-        </div> 
+        </div>
       </div>
     </template>
   </preview>
@@ -36,7 +38,7 @@
       </div>
     </template>
     <template v-slot:step>
-      <router-link to="/select/optional">下一步</router-link>
+      <div @click="goToOptional">下一步</div>
     </template>
   </sumPrice>
   <!-- 底部占位 -->
@@ -46,6 +48,16 @@
 <script setup>
 import sumPrice from "../../components/sumPrice.vue";
 import preview from "../../components/preview.vue";
+import { useRouter } from "vue-router";
+import { useSelectStore } from "../../store/select";
+const router = useRouter();
+
+const { nextItem } = useSelectStore();
+
+const goToOptional = () => {
+  router.push("/select/optional");
+  nextItem();
+};
 </script>
 
 <style scoped></style>

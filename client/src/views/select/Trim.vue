@@ -12,34 +12,50 @@
     </template>
     <template v-slot:choose>
       <div class="color-list flex justify-center items-center mt-4 ml-4 mr-4">
-        <div class="color-box w-[60px] h-[60px] flex justify-center items-center">
+        <div
+          class="color-box w-[60px] h-[60px] flex justify-center items-center"
+        >
           <div class="color-item w-4 h-4 rounded-full bg-[#b5b5b5]"></div>
         </div>
-        <div class="color-box w-[60px] h-[60px] flex justify-center items-center">
+        <div
+          class="color-box w-[60px] h-[60px] flex justify-center items-center"
+        >
           <div class="color-item w-4 h-4 rounded-full bg-[#81363b]"></div>
         </div>
-        <div class="color-box w-[60px] h-[60px] flex justify-center items-center">
+        <div
+          class="color-box w-[60px] h-[60px] flex justify-center items-center"
+        >
           <div class="color-item w-4 h-4 rounded-full bg-[#c0bbb4]"></div>
         </div>
       </div>
     </template>
   </preview>
-    <sumPrice>
-        <template v-slot:price>
-        <div class="content flex justify-center items-center">
-            <div class="text-[12px] text-[#666666]">预计总价：</div>
-            <div class="text-[16px] font-bold">￥249000</div>
-        </div>
-        </template>
-        <template v-slot:step>
-        <router-link to="/select/hub">下一步</router-link>
-        </template>
-    </sumPrice>
+  <sumPrice>
+    <template v-slot:price>
+      <div class="content flex justify-center items-center">
+        <div class="text-[12px] text-[#666666]">预计总价：</div>
+        <div class="text-[16px] font-bold">￥249000</div>
+      </div>
+    </template>
+    <template v-slot:step>
+      <div @click="goToHub">下一步</div>
+    </template>
+  </sumPrice>
 </template>
 
 <script setup>
 import preview from "../../components/preview.vue";
 import sumPrice from "../../components/sumPrice.vue";
+import { useRouter } from "vue-router";
+import { useSelectStore } from "../../store/select";
+const router = useRouter();
+
+const { nextItem } = useSelectStore();
+
+const goToHub = () => {
+  router.push("/select/hub");
+  nextItem();
+};
 </script>
 
 <style scoped></style>

@@ -40,11 +40,11 @@ import { useSelectStore } from "../../store/select";
 const versionItem = ref(0);
 const router = useRouter();
 
-const { nextItem,version } = useSelectStore();
+const { nextItem, version } = useSelectStore();
 const goToAppearance = () => {
-  router.push('/select/appearance');
+  router.push("/select/appearance");
+  nextItem();
 };
-
 </script>
 
 <style lang="scss" scoped></style>
