@@ -49,14 +49,11 @@
 import sumPrice from "../../components/sumPrice.vue";
 import preview from "../../components/preview.vue";
 import { useRouter } from "vue-router";
-import { useSelectStore } from "../../store/select";
 const router = useRouter();
 
-const { nextItem } = useSelectStore();
 
 const goToOptional = () => {
   router.push("/select/optional");
-  nextItem();
 };
 </script>
 

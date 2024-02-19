@@ -39,7 +39,7 @@
         </div>
       </template>
       <template v-slot:step>
-        <router-link to="/select/">预览配置</router-link>
+        <router-link to="/login">预览配置</router-link>
       </template>
     </sumPrice>
     <!-- 底部占位 -->

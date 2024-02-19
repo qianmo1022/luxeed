@@ -62,14 +62,12 @@
 import sumPrice from "../../components/sumPrice.vue";
 import preview from "../../components/preview.vue";
 import { useRouter } from "vue-router";
-import { useSelectStore } from "../../store/select";
+
 const router = useRouter();
 
-const { nextItem } = useSelectStore();
 
 const goToTrim = () => {
   router.push("/select/trim");
-  nextItem();
 };
 </script>
 

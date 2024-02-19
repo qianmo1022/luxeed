@@ -48,6 +48,11 @@ const routes = [
         component: () => import('../views/select/Optional.vue')
       }
     ]
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
   }
 ]
 

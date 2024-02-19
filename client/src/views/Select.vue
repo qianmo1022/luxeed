@@ -10,8 +10,8 @@
         v-for="(item, index) in selection"
         :key="index"
         class="justify-between items-center mr-2 text-[18px] bottom-0"
-        :class="{ 'text-[24px] font-bold': selectedItem === index }"
-        @click="selectedItem = index"
+        :class="{ 'text-[24px] font-bold': selectedItem === item.value }"
+        @click="selectedItem = item.value"
       >
         <!-- 通过点击事件改变selectedItem的值，从而改变样式 -->
         <router-link :to="`/select/${item.value}`">
@@ -27,22 +27,27 @@
 
 <script setup>
 import hwheader from "../components/hwheader.vue";
-import { ref, watchEffect, toRefs } from "vue";
+import { ref, watch, toRefs,onBeforeMount } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { useSelectStore } from "../store/select";
 
 const router = useRouter();
 const route = useRoute();
-
-// const isSelected = (item)=>{
-//   console.log(route.path);
-//   return item.value === route.
+// const isSelected = ()=>{
+//   return route.path.split("/").pop();
 // }
+// console.log(route.path.split("/").pop());
 
-const { selectedItem, selection } = toRefs(useSelectStore()); //解构赋值，从useSelectStore中获取selection
-// console.log(selection);
+const { selectedItem,selection } = toRefs(useSelectStore()); //解构赋值，从useSelectStore中获取selection
 
-// console.log(selectedItemIndex.value);
+// 使用watch监听路由变化，当路由变化时，对应加粗子路由的文字
+watch(route,async () => {
+  selectedItem.value =  route.path.split("/").pop();
+  if (selectedItem.value !== 'version') {
+    await router.push(`/select/${selectedItem.value}`);
+  }
+})
+
 </script>
 
 <style scoped></style>

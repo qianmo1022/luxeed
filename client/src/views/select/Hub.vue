@@ -41,14 +41,11 @@
 import preview from "../../components/preview.vue";
 import sumPrice from "../../components/sumPrice.vue";
 import { useRouter } from "vue-router";
-import { useSelectStore } from "../../store/select";
-const router = useRouter();
 
-const { nextItem } = useSelectStore();
+const router = useRouter();
 
 const goToSeat = () => {
   router.push("/select/seat");
-  nextItem();
 };
 </script>
 
