@@ -25,7 +25,7 @@
       <div class="info-content pt-10 pl-2 pr-2">
         <div class="info-title text-white">欢迎预约</div>
         <div class="info-box">
-          <div class="info-cartype flex bt-line">
+          <div class="info-cartype flex border-b-[0.5px] border-[#8f9091] border-solid">
             <div
               class="text text-[14px] text-[rgba(255,255,255,0.6)] self-center"
             >
@@ -49,13 +49,13 @@
               />
             </van-popup>
           </div>
-          <div class="info-phone flex bt-line">
+          <div class="info-phone flex border-b-[0.5px] border-[#8f9091] border-solid">
             <div
               class="text text-[14px] text-[rgba(255,255,255,0.6)] self-center"
             >
               手机号码
             </div>
-            <van-fnield
+            <van-field
               class="!bg-transparent max-w-[250px] ml-2 text-[#ffffff]"
               center
               clearable
@@ -63,7 +63,7 @@
               placeholder="请输入手机号码"
             />
           </div>
-          <div class="info-code flex bt-line">
+          <div class="info-code flex border-b-[0.5px] border-[#8f9091] border-solid">
             <div
               class="text text-[14px] text-[rgba(255,255,255,0.6)] self-center"
             >
@@ -81,7 +81,7 @@
               </template>
             </van-field>
           </div>
-          <div class="info-shop flex bt-line">
+          <div class="info-shop flex border-b-[0.5px] border-[#8f9091] border-solid">
             <div
               class="text text-[14px] text-[rgba(255,255,255,0.6)] self-center"
             >
@@ -225,7 +225,4 @@ const submit = () => {
 </script>
 
 <style scoped>
-.bt-line {
-  border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
-}
 </style>
