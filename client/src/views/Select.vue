@@ -7,8 +7,8 @@
     <div class="header h-4 mt-2 ml-2 flex items-end">
       <!-- items-end 使得文字底部与底部对齐 -->
       <div
-        v-for="(item, index) in selection"
-        :key="index"
+        v-for="item in selection"
+        :key="item.id"
         class="justify-between items-center mr-2 text-[18px] bottom-0"
         :class="{ 'text-[24px] font-bold': selectedItem === item.value }"
         @click="selectedItem = item.value"

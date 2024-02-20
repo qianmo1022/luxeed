@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import hwheader from '../components/hwheader.vue';
+import hwheader from '@/components/hwheader.vue';
 import {  ref,onUnmounted,onMounted } from 'vue';
 import { useRouter } from 'vue-router';
 import axios from 'axios'; // 引入 axios

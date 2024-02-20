@@ -24,6 +24,13 @@ const login = async (ctx, next) => {
       };
       // console.log('密码错误');
     }
+    ctx.body = {
+      code: 1,
+      msg: '登录成功',
+      data: {    // 将账号密码以及账号购物车信息返回给前端
+          user: user
+      },
+  }
   }
 };
 

@@ -68,7 +68,7 @@ const onSubmit = async () => {
   });
   console.log(res);
   // 检查登录是否成功
-  if (res.data.success) {
+  if (res.data.code == 1) {
     // 保存用户信息
     sessionStorage.setItem("userInfo", JSON.stringify(res.data));
     router.push("/showselectedinfo");

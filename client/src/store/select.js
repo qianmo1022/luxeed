@@ -45,6 +45,7 @@ export const useSelectStore = defineStore("select", () => {
   const version = ref([
     {
       name: "智界 S7 Pro",
+      id: 0,
       info: {
         price: "·24.98万元起",
         battery: "·550km续航 HUAWEI ADS 进阶版",
@@ -53,6 +54,7 @@ export const useSelectStore = defineStore("select", () => {
     },
     {
       name: "智界 S7 Max",
+      id: 1,
       info: {
         price: "·28.98万元起",
         battery: "·705km长续航 HUAWEI ADS 高阶版",
@@ -61,6 +63,7 @@ export const useSelectStore = defineStore("select", () => {
     },
     {
       name: "智界 S7 Max+",
+      id: 2,
       info: {
         price: "·31.98万元起",
         battery: "·855km超长续航 HUAWEI ADS 高阶版",
@@ -69,6 +72,7 @@ export const useSelectStore = defineStore("select", () => {
     },
     {
       name: "智界 S7 Max RS",
+      id: 3,
       info: {
         price: "·34.98万元起",
         battery: "·630km长续航 HUAWEI ADS 高阶版",

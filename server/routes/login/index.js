@@ -1,7 +1,7 @@
 // 登录接口
 const router = require('koa-router')()
 const login_controller=require('../../controllers/login/index.js')
-// 测试
+// // 测试
 // router.get('/test', (ctx,next) => {
 //     ctx.body='hello'
 // })
