@@ -41,7 +41,7 @@ import { addCarSelected } from "@/api/getCar.js";
 const selectedVersion = ref(0);
 const selectedVersionData = ref({});
 const router = useRouter();
-const { version } = useSelectStore();
+const { selectedItem, version } = useSelectStore();
 
 // console.log(version.find(item => item.id === selectedVersion.value));
 
@@ -54,7 +54,7 @@ watchEffect(() => {
 
 const goToAppearance = () => {
   // 在跳转之前，将选中的版本数据添加到 carselected 中
-  addCarSelected(selectedVersionData.value);
+  addCarSelected(selectedItem, selectedVersionData.value);
 
   // 使用 nextTick 确保在 DOM 更新之后执行代码
   nextTick(() => {

@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 // vue3.0 hook函数
 export const useSelectStore = defineStore("select", () => {
     const selectedItem = ref('version')
-    const carselected = ref([])
+    const carselected = ref({})
   const selection = ref([
     {
       name: "版本",
