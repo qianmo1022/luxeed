@@ -49,6 +49,7 @@
   <script setup>
   import sumPrice from "../../components/sumPrice.vue";
   import preview from "../../components/preview.vue";
+
   </script>
   
   <style scoped></style>

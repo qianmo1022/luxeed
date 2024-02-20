@@ -3,10 +3,10 @@
     <!-- 选中的版本边框加粗 -->
     <div
       class="box border-[1px] border-[#eaeaea] border-solid rounded-md mt-2"
-      :class="{ 'border-black border-[2px]': versionItem === item.id }"
+      :class="{ 'border-black border-[2px]': selectedVersion === item.id }"
       v-for="item in version"
       :key="item.id"
-      @click="versionItem = item.id"
+      @click="selectedVersion = item.id"
     >
       <div class="infoBox ml-2 mr-2 mt-2 mb-2 text-[16px] font-bold">
         {{ item.name }}
@@ -32,18 +32,35 @@
 </template>
 
 <script setup>
-import sumPrice from "../../components/sumPrice.vue";
-import { ref } from "vue";
+import sumPrice from "@/components/sumPrice.vue";
+import { ref, nextTick, watchEffect } from "vue";
 import { useRouter } from "vue-router";
-import { useSelectStore } from "../../store/select";
+import { useSelectStore } from "@/store/select";
+import { addCarSelected } from "@/api/getCar.js";
 
-const versionItem = ref(0);
+const selectedVersion = ref(0);
+const selectedVersionData = ref({});
 const router = useRouter();
-
 const { version } = useSelectStore();
+
+// console.log(version.find(item => item.id === selectedVersion.value));
+
+watchEffect(() => {
+  // 每次 selectedVersion 变化时更新 selectedVersionData
+  selectedVersionData.value = version.find(
+    (item) => item.id === selectedVersion.value
+  );
+});
+
 const goToAppearance = () => {
-  router.push("/select/appearance");
+  // 在跳转之前，将选中的版本数据添加到 carselected 中
+  addCarSelected(selectedVersionData.value);
+
+  // 使用 nextTick 确保在 DOM 更新之后执行代码
+  nextTick(() => {
+    router.push("/select/appearance");
+  });
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>

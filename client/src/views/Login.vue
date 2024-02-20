@@ -48,15 +48,23 @@
 </template>
 
 <script setup>
-import { reactive } from "vue";
+import { reactive,onMounted } from "vue";
 import { useRouter } from "vue-router";
-import axios from "../api";
+import axios from "@/api";
 
 const router = useRouter();
 const state = reactive({
   // 将对象变成响应式
   username: "",
   password: "",
+});
+
+onMounted(() => {
+  // 检查是否已经登录
+  const userInfo = sessionStorage.getItem("userInfo");
+  if (userInfo) {
+    router.push("/showselectedinfo");
+  }
 });
 
 const onSubmit = async () => {

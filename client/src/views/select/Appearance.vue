@@ -65,7 +65,6 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-
 const goToTrim = () => {
   router.push("/select/trim");
 };

@@ -26,10 +26,10 @@
 </template>
 
 <script setup>
-import hwheader from "../components/hwheader.vue";
-import { ref, watch, toRefs,onBeforeMount } from "vue";
+import hwheader from "@/components/hwheader.vue";
+import { ref, watch, toRefs } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import { useSelectStore } from "../store/select";
+import { useSelectStore } from "@/store/select";
 
 const router = useRouter();
 const route = useRoute();

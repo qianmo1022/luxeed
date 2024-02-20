@@ -70,8 +70,7 @@ const state = reactive({  // 将对象变成响应式
 const onSubmit = async () => {
   const res = await axios.post('/register', state);
     console.log(res);
-    // 保存用户信息
-    sessionStorage.setItem('userInfo', JSON.stringify(res.data));
+    // 注册成功后跳转到登录页面
     router.push('/login');
 }
 
